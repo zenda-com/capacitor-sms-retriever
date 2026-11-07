@@ -55,14 +55,9 @@ dependencies {
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
-    implementation 'com.google.android.gms:play-services-auth-api-phone:17.5.0'    
-    implementation 'com.google.android.gms:play-services-auth:19.0.0'
-    // For Google Maps
-    implementation 'com.google.android.gms:play-services-maps:17.0.1'
-
-    // For Google Location Services
-    implementation 'com.google.android.gms:play-services-location:18.0.0'
-
-    // For Google Play Games
-    implementation 'com.google.android.gms:play-services-games:21.0.0'
+    // SmsRetriever lives in play-services-auth-api-phone; base and tasks come
+    // in transitively. The template's maps, location, auth and games
+    // artifacts were never referenced by this plugin and play-services-games
+    // 21.0.0 carries a critical Play SDK Index note, so they are gone.
+    implementation 'com.google.android.gms:play-services-auth-api-phone:17.5.0'
 }
